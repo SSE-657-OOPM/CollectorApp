@@ -38,8 +38,11 @@ namespace CollectorApp
         /// </summary>
         public void GoToCollectionsPage()
         {
-            AppFrame?.Navigate(typeof(CollectionsPage), _user.Collections);
-            HamburgerMenu.SelectedItem = CollectionButton;
+            if (AppFrame?.Content.GetType() != typeof(CollectionsPage))
+            {
+                AppFrame?.Navigate(typeof(CollectionsPage), _user.Collections);
+                HamburgerMenu.SelectedItem = CollectionButton;
+            }
         }
 
         /// <summary>
@@ -47,8 +50,11 @@ namespace CollectorApp
         /// </summary>
         public void GoToSettingsPage()
         {
-            AppFrame?.Navigate(typeof(SettingsPage));
-            HamburgerMenu.SelectedItem = SettingsButton;
+            if (AppFrame?.Content.GetType() != typeof(SettingsPage))
+            {
+                AppFrame?.Navigate(typeof(SettingsPage));
+                HamburgerMenu.SelectedItem = SettingsButton;
+            }
         }
 
         private void AddDummyCollections()
