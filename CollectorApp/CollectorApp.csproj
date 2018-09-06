@@ -98,7 +98,10 @@
     <Compile Include="AppShell.xaml.cs">
       <DependentUpon>AppShell.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\BoolToInverseBoolConverter.cs" />
+    <Compile Include="Converters\BoolToInverseVisibilityConverter.cs" />
     <Compile Include="Converters\BoolToNullableBoolConverter.cs" />
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Models\BindableBase.cs" />
     <Compile Include="Models\CategoryRecord.cs" />
     <Compile Include="Models\ItemRecord.cs" />

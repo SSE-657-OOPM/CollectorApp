@@ -1,4 +1,5 @@
 ﻿using CollectorApp.Models;
+using System.Collections.ObjectModel;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 

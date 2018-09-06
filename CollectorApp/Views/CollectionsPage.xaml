@@ -24,7 +24,8 @@
             <ListBox x:Name="Collections"
                      Grid.Row="1"
                      ItemsSource="{x:Bind Path=_collections}"
-                     SelectionChanged="{x:Bind Path=GoToCollection}"/>
+                     SelectionChanged="{x:Bind Path=GoToCollection}"
+                     Background="WhiteSmoke"/>
         <StackPanel Grid.Row="2">
             <Button Content="Add Collection"
                     HorizontalAlignment="Right"
