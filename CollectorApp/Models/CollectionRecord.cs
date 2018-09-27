@@ -6,7 +6,7 @@ namespace CollectorApp.Models
     /// Class representing a collection.
     /// </summary>
     /// <seealso cref="CollectorApp.Models.Record" />
-    class CollectionRecord : Record
+    public class CollectionRecord : Record
     {
         /// <summary>
         /// The items in the collection record.

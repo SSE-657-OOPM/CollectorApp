@@ -36,7 +36,7 @@ namespace CollectorApp
         /// <summary>
         /// Goes to collections page.
         /// </summary>
-        public void GoToCollectionsPage()
+        private void GoToCollectionsPage()
         {
             if (AppFrame?.Content.GetType() != typeof(CollectionsPage))
             {
@@ -48,7 +48,7 @@ namespace CollectorApp
         /// <summary>
         /// Goes to settings page.
         /// </summary>
-        public void GoToSettingsPage()
+        private void GoToSettingsPage()
         {
             if (AppFrame?.Content.GetType() != typeof(SettingsPage))
             {

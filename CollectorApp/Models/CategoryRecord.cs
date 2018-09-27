@@ -4,7 +4,7 @@
     /// Class representing categories of collections.
     /// </summary>
     /// <seealso cref="CollectorApp.Models.Record" />
-    class CategoryRecord : Record
+    public class CategoryRecord : Record
     {
     }
 }

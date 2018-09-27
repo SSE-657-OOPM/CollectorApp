@@ -4,7 +4,7 @@
     /// Class representing an item.
     /// </summary>
     /// <seealso cref="CollectorApp.Models.Record" />
-    class ItemRecord : Record
+    public class ItemRecord : Record
     {
         /// <summary>
         /// Value specifying if item has been collected.

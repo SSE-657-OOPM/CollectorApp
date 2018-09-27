@@ -55,11 +55,9 @@
                     <StackPanel Orientation="Horizontal"
                                 Visibility="{Binding IsCollected, Converter={StaticResource boolConverter}}">
                         <CheckBox MinWidth="30"
-                                  IsChecked="{Binding IsCollected, Mode=TwoWay}"
-                                  Visibility="{Binding IsCollected, Converter={StaticResource boolConverter}}"/>
+                                  IsChecked="{Binding IsCollected, Mode=TwoWay}"/>
                         <TextBlock Text="{Binding}"
-                                   VerticalAlignment="Center"
-                                   Visibility="{Binding IsCollected, Converter={StaticResource boolConverter}}"/>
+                                   VerticalAlignment="Center"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

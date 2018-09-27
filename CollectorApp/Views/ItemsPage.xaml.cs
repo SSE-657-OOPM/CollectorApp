@@ -1,5 +1,4 @@
 ﻿using CollectorApp.Models;
-using System.Collections.ObjectModel;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -40,7 +39,7 @@ namespace CollectorApp.Views
         /// <summary>
         /// Adds the item.
         /// </summary>
-        public void AddItem()
+        private void AddItem()
         {
             System.Diagnostics.Debug.WriteLine("Item Added");
         }

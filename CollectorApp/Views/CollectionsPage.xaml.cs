@@ -39,7 +39,7 @@ namespace CollectorApp.Views
         /// <summary>
         /// Adds the collection.
         /// </summary>
-        public void AddCollection()
+        private void AddCollection()
         {
             System.Diagnostics.Debug.WriteLine("Collection Added");
         }
@@ -47,7 +47,7 @@ namespace CollectorApp.Views
         /// <summary>
         /// Goes to collection.
         /// </summary>
-        public void GoToCollection()
+        private void GoToCollection()
         {
             Frame.Navigate(typeof(ItemsPage), _collections.FirstOrDefault(c => c.Name == Collections.SelectedItem.ToString()));
         }

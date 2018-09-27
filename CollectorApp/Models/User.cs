@@ -5,7 +5,7 @@ namespace CollectorApp.Models
     /// <summary>
     /// Class representing users of the app.
     /// </summary>
-    class User
+    public class User
     {
         /// <summary>
         /// The collections defined by the user.
@@ -25,5 +25,13 @@ namespace CollectorApp.Models
             Collections = new ObservableCollection<CollectionRecord>();
             Categories = new ObservableCollection<CategoryRecord>();
         }
+
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        public string Name { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Windows.UI.Xaml.Controls;
+﻿using CollectorApp.Utils;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace CollectorApp.Views
 {
@@ -16,6 +18,19 @@ namespace CollectorApp.Views
         public MainPage()
         {
             InitializeComponent();
+            Loaded += MainPage_LoadedAsync;
+        }
+
+        /// <summary>
+        /// Handles the Loaded event of the MainPage control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        private async void MainPage_LoadedAsync(object sender, RoutedEventArgs e)
+        {
+            // Load the local Accounts List before navigating to the UserSelection page
+            await UserHelper.LoadUserListAsync();
+            Frame.Navigate(typeof(UserSelection));
         }
     }
 }
