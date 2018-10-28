@@ -30,7 +30,7 @@ namespace CollectorApp.Views
         {
             // Load the local Accounts List before navigating to the UserSelection page
             await UserHelper.LoadUserListAsync();
-            Frame.Navigate(typeof(UserSelection));
+            Frame.Navigate(typeof(CollectionsPage));
         }
     }
 }

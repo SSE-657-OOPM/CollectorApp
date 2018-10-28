@@ -1,6 +1,4 @@
-﻿using CollectorApp.Models;
-using CollectorApp.Views;
-using System.Collections.ObjectModel;
+﻿using CollectorApp.Views;
 using Windows.UI.Xaml.Controls;
 
 namespace CollectorApp
@@ -13,15 +11,12 @@ namespace CollectorApp
     /// <seealso cref="Windows.UI.Xaml.Markup.IComponentConnector2" />
     public sealed partial class AppShell : Page
     {
-        User _user;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="AppShell"/> class.
         /// </summary>
         public AppShell()
         {
             InitializeComponent();
-            AddDummyCollections();
             AppFrame?.Navigate(typeof(MainPage));
         }
 
@@ -40,7 +35,7 @@ namespace CollectorApp
         {
             if (AppFrame?.Content.GetType() != typeof(CollectionsPage))
             {
-                AppFrame?.Navigate(typeof(CollectionsPage), _user.Collections);
+                AppFrame?.Navigate(typeof(CollectionsPage));
                 HamburgerMenu.SelectedItem = CollectionButton;
             }
         }
@@ -55,47 +50,6 @@ namespace CollectorApp
                 AppFrame?.Navigate(typeof(SettingsPage));
                 HamburgerMenu.SelectedItem = SettingsButton;
             }
-        }
-
-        private void AddDummyCollections()
-        {
-            _user = new User();
-            var itemsA = new ObservableCollection<ItemRecord>()
-            {
-                GetItemRecord("Item A"),
-                GetItemRecord("Item B"),
-                GetItemRecord("Item C")
-            };
-            var itemsB = new ObservableCollection<ItemRecord>()
-            {
-                GetItemRecord("Item A"),
-                GetItemRecord("Item B")
-            };
-            var itemsC = new ObservableCollection<ItemRecord>()
-            {
-                GetItemRecord("Item A"),
-                GetItemRecord("Item B"),
-                GetItemRecord("Item C"),
-                GetItemRecord("Item D"),
-                GetItemRecord("Item E"),
-                GetItemRecord("Item F")
-            };
-            _user.Collections = new ObservableCollection<CollectionRecord>()
-            {
-                GetCollectionRecord("Collection A", itemsA),
-                GetCollectionRecord("Collection B", itemsB),
-                GetCollectionRecord("Collection C", itemsC)
-            };
-        }
-
-        private ItemRecord GetItemRecord(string name)
-        {
-            return new ItemRecord { Name = name };
-        }
-
-        private CollectionRecord GetCollectionRecord(string name, ObservableCollection<ItemRecord> itemRecords)
-        {
-            return new CollectionRecord { Name = name, Items = itemRecords };
         }
     }
 }

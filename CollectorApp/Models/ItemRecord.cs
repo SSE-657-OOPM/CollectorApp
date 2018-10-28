@@ -1,19 +1,54 @@
 ﻿namespace CollectorApp.Models
 {
     /// <summary>
-    /// Class representing an item.
+    /// Class representing an item in a collection.
     /// </summary>
-    /// <seealso cref="CollectorApp.Models.Record" />
-    public class ItemRecord : Record
+    public class ItemRecord
     {
         /// <summary>
-        /// Value specifying if item has been collected.
+        /// Initializes a new instance of the <see cref="ItemRecord"/> class.
         /// </summary>
-        private bool _isCollected;
-        public bool IsCollected
+        /// <param name="name">The name.</param>
+        /// <param name="priorityLevel">The priority level.</param>
+        public ItemRecord(string name, int priorityLevel=0)
         {
-            get => _isCollected;
-            set => SetProperty(ref _isCollected, value);
+            Name = name;
+            Priority = new Priority(priorityLevel);
         }
+
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is collected.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance is collected; otherwise, <c>false</c>.
+        /// </value>
+        public bool IsCollected { get; set; } = false;
+
+        /// <summary>
+        /// Gets or sets the priority.
+        /// </summary>
+        public Priority Priority { get; set; }
+
+        /// <summary>
+        /// Updates this instance.
+        /// </summary>
+        public void Update(string name, int priorityLevel)
+        {
+            Name = name;
+            Priority = new Priority(priorityLevel);
+        }
+
+        /// <summary>
+        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String" /> that represents this instance.
+        /// </returns>
+        public override string ToString() => Name;
     }
 }
