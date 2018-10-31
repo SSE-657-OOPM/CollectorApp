@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectorApp", "CollectorApp\CollectorApp.csproj", "{5AD18223-6664-49C7-8006-5500B6CBB17C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectorAppTest", "CollectorAppTest\CollectorAppTest.csproj", "{C28C0112-BA4B-4F6A-98A0-F322296D8143}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -33,6 +35,24 @@ Global
 		{5AD18223-6664-49C7-8006-5500B6CBB17C}.Release|x86.ActiveCfg = Release|x86
 		{5AD18223-6664-49C7-8006-5500B6CBB17C}.Release|x86.Build.0 = Release|x86
 		{5AD18223-6664-49C7-8006-5500B6CBB17C}.Release|x86.Deploy.0 = Release|x86
+		{C28C0112-BA4B-4F6A-98A0-F322296D8143}.Debug|ARM.ActiveCfg = Debug|ARM
+		{C28C0112-BA4B-4F6A-98A0-F322296D8143}.Debug|ARM.Build.0 = Debug|ARM
+		{C28C0112-BA4B-4F6A-98A0-F322296D8143}.Debug|ARM.Deploy.0 = Debug|ARM
+		{C28C0112-BA4B-4F6A-98A0-F322296D8143}.Debug|x64.ActiveCfg = Debug|x64
+		{C28C0112-BA4B-4F6A-98A0-F322296D8143}.Debug|x64.Build.0 = Debug|x64
+		{C28C0112-BA4B-4F6A-98A0-F322296D8143}.Debug|x64.Deploy.0 = Debug|x64
+		{C28C0112-BA4B-4F6A-98A0-F322296D8143}.Debug|x86.ActiveCfg = Debug|x86
+		{C28C0112-BA4B-4F6A-98A0-F322296D8143}.Debug|x86.Build.0 = Debug|x86
+		{C28C0112-BA4B-4F6A-98A0-F322296D8143}.Debug|x86.Deploy.0 = Debug|x86
+		{C28C0112-BA4B-4F6A-98A0-F322296D8143}.Release|ARM.ActiveCfg = Release|ARM
+		{C28C0112-BA4B-4F6A-98A0-F322296D8143}.Release|ARM.Build.0 = Release|ARM
+		{C28C0112-BA4B-4F6A-98A0-F322296D8143}.Release|ARM.Deploy.0 = Release|ARM
+		{C28C0112-BA4B-4F6A-98A0-F322296D8143}.Release|x64.ActiveCfg = Release|x64
+		{C28C0112-BA4B-4F6A-98A0-F322296D8143}.Release|x64.Build.0 = Release|x64
+		{C28C0112-BA4B-4F6A-98A0-F322296D8143}.Release|x64.Deploy.0 = Release|x64
+		{C28C0112-BA4B-4F6A-98A0-F322296D8143}.Release|x86.ActiveCfg = Release|x86
+		{C28C0112-BA4B-4F6A-98A0-F322296D8143}.Release|x86.Build.0 = Release|x86
+		{C28C0112-BA4B-4F6A-98A0-F322296D8143}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
