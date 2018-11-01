@@ -12,7 +12,7 @@ namespace CollectorApp.Models
         private const string CATEGORY_RECORD_XML_CATEGORY_ELEMENT_NAME = "CategoryRecord";
         private const string CATEGORY_RECORD_XML_CATEGORY_NAME_ATTRIBUTE_NAME = "Name";
         private const string CATEGORY_RECORD_XML_CATEGORY_DESCRIPTION_ELEMENT_NAME = "Description";
-        private const string DEFAULT_DESCRIPTION = "No description.";
+        private const string DEFAULT_CATEGORY_DESCRIPTION = "No description.";
 
         /// <summary>
         /// The instances of category records in the application.
@@ -40,7 +40,7 @@ namespace CollectorApp.Models
         {
             if (!_instances.TryGetValue(name, out _))
             {
-                CreateCategoryRecord(name, DEFAULT_DESCRIPTION);
+                CreateCategoryRecord(name, DEFAULT_CATEGORY_DESCRIPTION);
             }
             return _instances[name];
         }

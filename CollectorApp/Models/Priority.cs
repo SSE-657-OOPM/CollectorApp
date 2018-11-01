@@ -70,8 +70,11 @@ namespace CollectorApp.Models
         }
 
         /// <summary>
-        /// Gets or sets the level.
+        /// Gets the level.
         /// </summary>
+        /// <value>
+        /// The level of the priority.
+        /// </value>
         public PriorityLevel Level { get; }
 
         /// <summary>
@@ -126,6 +129,8 @@ namespace CollectorApp.Models
             return false;
         }
 
+        #region Operator Functions
+
         public static bool operator ==(Priority left, Priority right)
             => ReferenceEquals(left, null) ? ReferenceEquals(right, null) : left.Equals(right);
         public static bool operator !=(Priority left, Priority right)
@@ -134,5 +139,7 @@ namespace CollectorApp.Models
             => (int)left.Level < (int)right.Level;
         public static bool operator >(Priority left, Priority right)
             => (int)left.Level > (int)right.Level;
+
+        #endregion
     }
 }

@@ -18,7 +18,17 @@ namespace CollectorApp.Views
         public MainPage()
         {
             InitializeComponent();
-            Loaded += MainPage_LoadedAsync;
+            Loaded += MainPage_Loaded;
+        }
+
+        /// <summary>
+        /// Handles the Loaded event of the MainPage control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        private void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(CollectionsPage));
         }
 
         /// <summary>

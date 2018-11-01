@@ -10,15 +10,18 @@
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="priorityLevel">The priority level.</param>
-        public ItemRecord(string name, int priorityLevel=0)
+        public ItemRecord(string name, Priority priority)
         {
             Name = name;
-            //Priority = new Priority(priorityLevel);
+            Priority = priority;
         }
 
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
+        /// <value>
+        /// The name of the item.
+        /// </value>
         public string Name { get; set; }
 
         /// <summary>
@@ -32,16 +35,19 @@
         /// <summary>
         /// Gets or sets the priority.
         /// </summary>
+        /// <value>
+        /// The priority of the item.
+        /// </value>
         public Priority Priority { get; set; }
 
         /// <summary>
         /// Updates this instance.
         /// </summary>
-        //public void Update(string name, int priorityLevel)
-        //{
-        //    Name = name;
-        //    Priority = new Priority(priorityLevel);
-        //}
+        public void Update(string name, Priority priority)
+        {
+            Name = name;
+            Priority = priority;
+        }
 
         /// <summary>
         /// Returns a <see cref="System.String" /> that represents this instance.

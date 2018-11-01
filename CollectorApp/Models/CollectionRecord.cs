@@ -8,14 +8,7 @@ namespace CollectorApp.Models
     /// </summary>
     public class CollectionRecord
     {
-        /// <summary>
-        /// Different methods of sorting items.
-        /// </summary>
-        enum SortParameter
-        {
-            Priority,
-            Name
-        }
+        private const string DEFAULT_COLLECTION_DESCRIPTION = "No description.";
 
         /// <summary>
         /// The items in the collection record.
@@ -27,12 +20,14 @@ namespace CollectorApp.Models
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="priorityLevel">The priority level.</param>
-        //public CollectionRecord(string name, int priorityLevel=0)
-        //{
-        //    Name = name;
-        //    Priority = new Priority(priorityLevel);
-        //    Items = new ObservableCollection<ItemRecord>();
-        //}
+        public CollectionRecord(string name, Priority priority, CategoryRecord category=null)
+        {
+            Name = name;
+            Description = DEFAULT_COLLECTION_DESCRIPTION;
+            Priority = priority;
+            Category = category;
+            Items = new ObservableCollection<ItemRecord>();
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CollectionRecord"/> class.
@@ -40,28 +35,46 @@ namespace CollectorApp.Models
         /// <param name="name">The name.</param>
         /// <param name="description">The description.</param>
         /// <param name="priorityLevel">The priority level.</param>
-        //public CollectionRecord(string name, string description, int priorityLevel=0)
-        //{
-        //    Name = name;
-        //    Description = description;
-        //    Priority = new Priority(priorityLevel);
-        //    Items = new ObservableCollection<ItemRecord>();
-        //}
+        public CollectionRecord(string name, string description, Priority priority, CategoryRecord category = null)
+        {
+            Name = name;
+            Description = description;
+            Priority = priority;
+            Category = category;
+            Items = new ObservableCollection<ItemRecord>();
+        }
 
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
+        /// <value>
+        /// The name of the collection.
+        /// </value>
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the description.
         /// </summary>
-        public string Description { get; set; } = string.Empty;
+        /// <value>
+        /// The description of the collection.
+        /// </value>
+        public string Description { get; set; }
 
         /// <summary>
         /// Gets or sets the priority.
         /// </summary>
+        /// <value>
+        /// The priority of the collection.
+        /// </value>
         public Priority Priority { get; set; }
+
+        /// <summary>
+        /// Gets or sets the category.
+        /// </summary>
+        /// <value>
+        /// The category of the collection.
+        /// </value>
+        public CategoryRecord Category { get; set; }
 
         /// <summary>
         /// Updates this instance.
@@ -69,21 +82,25 @@ namespace CollectorApp.Models
         /// <param name="name">The name.</param>
         /// <param name="description">The description.</param>
         /// <param name="priorityLevel">The priority level.</param>
-        //public void Update(string name, string description, int priorityLevel)
-        //{
-        //    Name = name;
-        //    Description = description;
-        //    Priority = new Priority(priorityLevel);
-        //}
+        public void Update(string name, string description, Priority priority, CategoryRecord category = null)
+        {
+            Name = name;
+            Description = description;
+            Priority = priority;
+            Category = category;
+        }
 
         /// <summary>
-        /// Adds the item.
+        /// Adds the item to the collection.
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="priorityLevel">The priority level.</param>
-        public void AddItem(string name, int priorityLevel=0)
+        public void AddItem(string name, Priority priority)
         {
-            Items.Add(new ItemRecord(name, priorityLevel));
+            if (!Items.Any(i => i.Name == name))
+            {
+                Items.Add(new ItemRecord(name, priority));
+            }
         }
 
         /// <summary>
@@ -101,14 +118,14 @@ namespace CollectorApp.Models
         /// <param name="item">The item.</param>
         /// <param name="name">The name.</param>
         /// <param name="priorityLevel">The priority level.</param>
-        //public void UpdateItem(ItemRecord item, string name, int priorityLevel)
-        //{
-        //    if (Items.FirstOrDefault(c => c.Equals(item)) != null)
-        //    {
-        //        Items.FirstOrDefault(c => c.Equals(item))
-        //            .Update(name, priorityLevel);
-        //    }
-        //}
+        public void UpdateItem(ItemRecord item, string name, Priority priority)
+        {
+            if (Items.FirstOrDefault(c => c.Equals(item)) != null)
+            {
+                Items.FirstOrDefault(c => c.Equals(item))
+                    .Update(name, priority);
+            }
+        }
 
         /// <summary>
         /// Sorts the items.
@@ -116,12 +133,12 @@ namespace CollectorApp.Models
         /// <param name="sortParameter">The sort parameter.</param>
         public void SortItems(int sortParameter)
         {
-            var sortParam = (SortParameter)sortParameter;
-            if (sortParam == SortParameter.Priority)
+            var sortParam = (Record.SortParameter)sortParameter;
+            if (sortParam == Record.SortParameter.Priority)
             {
                 Items = new ObservableCollection<ItemRecord>(Items.OrderByDescending(i => i.Priority));
             }
-            else if (sortParam == SortParameter.Name)
+            else if (sortParam == Record.SortParameter.Name)
             {
                 Items = new ObservableCollection<ItemRecord>(Items.OrderBy(i => i.Name));
             }
