@@ -106,7 +106,7 @@
     <Compile Include="Converters\BoolToNullableBoolConverter.cs" />
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Models\BindableBase.cs" />
-    <Compile Include="Models\CategoryRecord.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\ItemRecord.cs" />
     <Compile Include="Models\CollectionRecord.cs" />
     <Compile Include="Models\Priority.cs" />

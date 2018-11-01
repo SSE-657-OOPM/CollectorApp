@@ -35,7 +35,7 @@ namespace CollectorApp.Models
         /// <param name="name">The name.</param>
         /// <param name="description">The description.</param>
         /// <param name="priorityLevel">The priority level.</param>
-        public void AddCollection(string name, string description, Priority priority, CategoryRecord category = null)
+        public void AddCollection(string name, string description, Priority priority, Category category = null)
         {
             if (!string.IsNullOrWhiteSpace(description))
             {
@@ -64,7 +64,7 @@ namespace CollectorApp.Models
         /// <param name="description">The description.</param>
         /// <param name="priorityLevel">The priority level.</param>
         public void UpdateCollection(CollectionRecord collection, string name, 
-            string description, Priority priority, CategoryRecord category)
+            string description, Priority priority, Category category)
         {
             if (Collections.FirstOrDefault(c => c.Equals(collection)) != null)
             {

@@ -23,7 +23,7 @@ namespace CollectorApp
             InitializeComponent();
             Suspending += OnSuspending;
             Priority.LoadPriorityLevels();
-            CategoryRecord.LoadDefaultCategoryRecords();
+            Category.LoadDefaultCategories();
         }
 
         /// <summary>

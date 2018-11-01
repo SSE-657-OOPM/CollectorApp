@@ -6,53 +6,53 @@ namespace CollectorApp.Models
     /// <summary>
     /// Class representing categories of collections.
     /// </summary>
-    public class CategoryRecord
+    public class Category
     {
         private const string DEFAULT_CATEGORY_RECORD_FILE = "./Resources/CategoryRecords.xml";
-        private const string CATEGORY_RECORD_XML_CATEGORY_ELEMENT_NAME = "CategoryRecord";
+        private const string CATEGORY_RECORD_XML_CATEGORY_ELEMENT_NAME = "Category";
         private const string CATEGORY_RECORD_XML_CATEGORY_NAME_ATTRIBUTE_NAME = "Name";
         private const string CATEGORY_RECORD_XML_CATEGORY_DESCRIPTION_ELEMENT_NAME = "Description";
         private const string DEFAULT_CATEGORY_DESCRIPTION = "No description.";
 
         /// <summary>
-        /// The instances of category records in the application.
+        /// The instances of categories in the application.
         /// </summary>
-        private static Dictionary<string, CategoryRecord> _instances
-            = new Dictionary<string, CategoryRecord>();
+        private static Dictionary<string, Category> _instances
+            = new Dictionary<string, Category>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CategoryRecord"/> class.
+        /// Initializes a new instance of the <see cref="Category"/> class.
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="description">The description.</param>
-        private CategoryRecord(string name, string description)
+        private Category(string name, string description)
         {
             Name = name;
             Description = description;
         }
 
         /// <summary>
-        /// Creates the category record.
+        /// Gets the category.
         /// </summary>
-        /// <param name="categoryName">Name of the category.</param>
+        /// <param name="name">The name.</param>
         /// <returns></returns>
-        public static CategoryRecord GetCategoryRecord(string name)
+        public static Category GetCategory(string name)
         {
             if (!_instances.TryGetValue(name, out _))
             {
-                CreateCategoryRecord(name, DEFAULT_CATEGORY_DESCRIPTION);
+                CreateCategory(name, DEFAULT_CATEGORY_DESCRIPTION);
             }
             return _instances[name];
         }
 
         /// <summary>
-        /// Creates the category record.
+        /// Creates the category.
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="description">The description.</param>
-        public static void CreateCategoryRecord(string name, string description)
+        public static void CreateCategory(string name, string description)
         {
-            if (!CategoryRecordIsDefault(name))
+            if (!CategoryIsDefault(name))
             {
                 if (_instances.TryGetValue(name, out var category))
                 {
@@ -60,33 +60,33 @@ namespace CollectorApp.Models
                 }
                 else
                 {
-                    new CategoryRecord(name, description).Store();
+                    new Category(name, description).Store();
                 }
             }
         }
 
         /// <summary>
-        /// Removes the category record.
+        /// Removes the category if it is not a default.
         /// </summary>
         /// <param name="name">The name.</param>
-        public static void RemoveCategoryRecord(string name)
+        public static void RemoveCategory(string name)
         {
-            if (!CategoryRecordIsDefault(name))
+            if (!CategoryIsDefault(name))
             {
                 _instances.Remove(name);
             }
         }
 
         /// <summary>
-        /// Loads the default category records.
+        /// Loads the default categories.
         /// </summary>
-        public static void LoadDefaultCategoryRecords()
+        public static void LoadDefaultCategories()
         {
             _instances.Clear();
             var xml = XDocument.Load(DEFAULT_CATEGORY_RECORD_FILE);
             foreach (var category in xml.Descendants(CATEGORY_RECORD_XML_CATEGORY_ELEMENT_NAME))
             {
-                new CategoryRecord(category.Attribute(CATEGORY_RECORD_XML_CATEGORY_NAME_ATTRIBUTE_NAME).Value.Trim(),
+                new Category(category.Attribute(CATEGORY_RECORD_XML_CATEGORY_NAME_ATTRIBUTE_NAME).Value.Trim(),
                     category.Element(CATEGORY_RECORD_XML_CATEGORY_DESCRIPTION_ELEMENT_NAME).Value.Trim()).Store();
             }
         }
@@ -95,7 +95,7 @@ namespace CollectorApp.Models
         /// Gets the name.
         /// </summary>
         /// <value>
-        /// The name of the category record.
+        /// The name of the category.
         /// </value>
         public string Name { get; }
 
@@ -103,7 +103,7 @@ namespace CollectorApp.Models
         /// Gets the description.
         /// </summary>
         /// <value>
-        /// The description of the category record.
+        /// The description of the category.
         /// </value>
         public string Description { get; private set; }
 
@@ -119,11 +119,11 @@ namespace CollectorApp.Models
         }
 
         /// <summary>
-        /// Checks if the category record is a default category.
+        /// Checks if the category is a default category.
         /// </summary>
         /// <param name="name">The name.</param>
         /// <returns></returns>
-        private static bool CategoryRecordIsDefault(string name)
+        private static bool CategoryIsDefault(string name)
         {
             var nameList = new List<string>();
             var xml = XDocument.Load(DEFAULT_CATEGORY_RECORD_FILE);
@@ -144,8 +144,8 @@ namespace CollectorApp.Models
         public override string ToString() => Name;
 
         /// <summary>
-        /// Prevents a default instance of the <see cref="CategoryRecord" /> class from being created.
+        /// Prevents a default instance of the <see cref="Category" /> class from being created.
         /// </summary>
-        private CategoryRecord() { }
+        private Category() { }
     }
 }

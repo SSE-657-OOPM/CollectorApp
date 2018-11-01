@@ -20,7 +20,7 @@ namespace CollectorApp.Models
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="priorityLevel">The priority level.</param>
-        public CollectionRecord(string name, Priority priority, CategoryRecord category=null)
+        public CollectionRecord(string name, Priority priority, Category category = null)
         {
             Name = name;
             Description = DEFAULT_COLLECTION_DESCRIPTION;
@@ -35,7 +35,7 @@ namespace CollectorApp.Models
         /// <param name="name">The name.</param>
         /// <param name="description">The description.</param>
         /// <param name="priorityLevel">The priority level.</param>
-        public CollectionRecord(string name, string description, Priority priority, CategoryRecord category = null)
+        public CollectionRecord(string name, string description, Priority priority, Category category = null)
         {
             Name = name;
             Description = description;
@@ -74,15 +74,16 @@ namespace CollectorApp.Models
         /// <value>
         /// The category of the collection.
         /// </value>
-        public CategoryRecord Category { get; set; }
+        public Category Category { get; set; }
 
         /// <summary>
-        /// Updates this instance.
+        /// Updates the specified name.
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="description">The description.</param>
-        /// <param name="priorityLevel">The priority level.</param>
-        public void Update(string name, string description, Priority priority, CategoryRecord category = null)
+        /// <param name="priority">The priority.</param>
+        /// <param name="category">The category.</param>
+        public void Update(string name, string description, Priority priority, Category category)
         {
             Name = name;
             Description = description;
@@ -131,14 +132,13 @@ namespace CollectorApp.Models
         /// Sorts the items.
         /// </summary>
         /// <param name="sortParameter">The sort parameter.</param>
-        public void SortItems(int sortParameter)
+        public void SortItems(Record.SortParameter sortParameter)
         {
-            var sortParam = (Record.SortParameter)sortParameter;
-            if (sortParam == Record.SortParameter.Priority)
+            if (sortParameter == Record.SortParameter.Priority)
             {
                 Items = new ObservableCollection<ItemRecord>(Items.OrderByDescending(i => i.Priority));
             }
-            else if (sortParam == Record.SortParameter.Name)
+            else if (sortParameter == Record.SortParameter.Name)
             {
                 Items = new ObservableCollection<ItemRecord>(Items.OrderBy(i => i.Name));
             }
@@ -152,9 +152,17 @@ namespace CollectorApp.Models
         public ObservableCollection<ItemRecord> SearchItems(string keyword)
         {
             var matchingItems = new ObservableCollection<ItemRecord>(
-                Items.Where(i => i.Name.Contains(keyword)));
+                Items.Where(i => i.Name.ToLower().Contains(keyword.ToLower())));
             return matchingItems;
         }
+
+        /// <summary>
+        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String" /> that represents this instance.
+        /// </returns>
+        public override string ToString() => Name;
 
         /// <summary>
         /// Prevents a default instance of the <see cref="CollectionRecord"/> class from being created.

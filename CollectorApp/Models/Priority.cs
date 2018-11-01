@@ -6,7 +6,7 @@ namespace CollectorApp.Models
     /// <summary>
     /// Class representing priorities of collections and items.
     /// </summary>
-    public class Priority
+    public class Priority : IComparable
     {
         /// <summary>
         /// Different levels of priority.
@@ -127,6 +127,18 @@ namespace CollectorApp.Models
                 return ((Priority)obj).Level == Level;
             }
             return false;
+        }
+
+        /// <summary>
+        /// Compares this to other object.
+        /// </summary>
+        /// <param name="obj">The object.</param>
+        /// <returns></returns>
+        public int CompareTo(object obj)
+        {
+            if (this < (Priority)obj) return -1;
+            if (this == (Priority)obj) return 0;
+            return 1;
         }
 
         #region Operator Functions

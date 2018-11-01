@@ -1,49 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?> 
 <!-- All default categories within the application -->
-<CategoryRecords>
-  <CategoryRecord Name="Music">
+<Categories>
+  <Category Name="Music">
     <Description>
       Collections related to music
     </Description>
-  </CategoryRecord>
-  <CategoryRecord Name="Books">
+  </Category>
+  <Category Name="Books">
     <Description>
       Collections related to books, authors, etc.
     </Description>
-  </CategoryRecord>
-  <CategoryRecord Name="Film">
+  </Category>
+  <Category Name="Film">
     <Description>
       Collections related to movies, short films, actors, etc.
     </Description>
-  </CategoryRecord>
-  <CategoryRecord Name="Toys">
+  </Category>
+  <Category Name="Toys">
     <Description>
       Collections related to toy sets, dolls, etc.
     </Description>
-  </CategoryRecord>
-  <CategoryRecord Name="Coins">
+  </Category>
+  <Category Name="Coins">
     <Description>
       Collections related to coins
     </Description>
-  </CategoryRecord>
-  <CategoryRecord Name="Stamps">
+  </Category>
+  <Category Name="Stamps">
     <Description>
       Collections related to stamps
     </Description>
-  </CategoryRecord>
-  <CategoryRecord Name="Games">
+  </Category>
+  <Category Name="Games">
     <Description>
       Collections related to video games, board games, etc.
     </Description>
-  </CategoryRecord>
-  <CategoryRecord Name="Sports">
+  </Category>
+  <Category Name="Sports">
     <Description>
       Collections related sports artifacts, memorabilia, etc.
     </Description>
-  </CategoryRecord>
-  <CategoryRecord Name="Specific">
+  </Category>
+  <Category Name="Specific">
     <Description>
       Collections that do not fit into the other categories : useful for filtering
     </Description>
-  </CategoryRecord>
-</CategoryRecords>
+  </Category>
+</Categories>
