@@ -37,6 +37,7 @@ namespace CollectorApp.Adapters
             if (_databaseAdapter == null)
             {
                 _databaseAdapter = new SQLiteDatabaseAdapter();
+                _databaseAdapter.InitializeDatabase();
             }
             return _databaseAdapter;
         }
