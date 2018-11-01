@@ -1,4 +1,5 @@
-﻿using CollectorApp.Views;
+﻿using CollectorApp.Models;
+using CollectorApp.Views;
 using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -21,6 +22,8 @@ namespace CollectorApp
         {
             InitializeComponent();
             Suspending += OnSuspending;
+            Priority.LoadPriorityLevels();
+            CategoryRecord.LoadDefaultCategoryRecords();
         }
 
         /// <summary>

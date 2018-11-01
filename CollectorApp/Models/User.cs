@@ -21,7 +21,7 @@ namespace CollectorApp.Models
         /// <summary>
         /// The categories that can be used by the user.
         /// </summary>
-        public List<CategoryRecord> Categories;
+        //public List<CategoryRecord> Categories;
 
         /// <summary>
         /// The collections defined by the user.
@@ -33,9 +33,8 @@ namespace CollectorApp.Models
         /// </summary>
         public User()
         {
-            Categories = new List<CategoryRecord>();
+            //Categories = new List<CategoryRecord>();
             Collections = new ObservableCollection<CollectionRecord>();
-            InitializeCategories();
         }
 
         /// <summary>
@@ -51,32 +50,32 @@ namespace CollectorApp.Models
         /// <param name="priorityLevel">The priority level.</param>
         public void AddCollection(string name, string description, int priorityLevel=0)
         {
-            if (!string.IsNullOrWhiteSpace(description))
-            {
-                Collections.Add(new CollectionRecord(name, description, priorityLevel));
-            }
-            else
-            {
-                Collections.Add(new CollectionRecord(name, priorityLevel));
-            }
+        //    if (!string.IsNullOrWhiteSpace(description))
+        //    {
+        //        Collections.Add(new CollectionRecord(name, description, priorityLevel));
+        //    }
+        //    else
+        //    {
+        //        Collections.Add(new CollectionRecord(name, priorityLevel));
+        //    }
         }
 
         /// <summary>
         /// Deletes the collection.
         /// </summary>
         /// <param name="collectionRecord">The collection record.</param>
-        public void DeleteCollection(CollectionRecord collectionRecord)
-        {
-            var categoriesWithCollection = Categories.Where(c => c.Collections.Contains(collectionRecord.Name));
-            if (categoriesWithCollection.Any())
-            {
-                foreach (var category in categoriesWithCollection)
-                {
-                    category.Collections.Remove(collectionRecord.Name);
-                }
-            }
-            Collections.Remove(collectionRecord);
-        }
+        //public void DeleteCollection(CollectionRecord collectionRecord)
+        //{
+        //    var categoriesWithCollection = Categories.Where(c => c.Collections.Contains(collectionRecord.Name));
+        //    if (categoriesWithCollection.Any())
+        //    {
+        //        foreach (var category in categoriesWithCollection)
+        //        {
+        //            category.Collections.Remove(collectionRecord.Name);
+        //        }
+        //    }
+        //    Collections.Remove(collectionRecord);
+        //}
 
         /// <summary>
         /// Updates the collection.
@@ -85,24 +84,24 @@ namespace CollectorApp.Models
         /// <param name="name">The name.</param>
         /// <param name="description">The description.</param>
         /// <param name="priorityLevel">The priority level.</param>
-        public void UpdateCollection(CollectionRecord collection, string name, 
-            string description, int priorityLevel)
-        {
-            var categoriesWithCollection = Categories.Where(c => c.Collections.Contains(collection.Name));
-            if (categoriesWithCollection.Any())
-            {
-                foreach (var category in categoriesWithCollection)
-                {
-                    category.Collections.Remove(collection.Name);
-                    category.AddCollection(name);
-                }
-            }
-            if (Collections.FirstOrDefault(c => c.Equals(collection)) != null)
-            {
-                Collections.FirstOrDefault(c => c.Equals(collection))
-                    .Update(name, description, priorityLevel);
-            }
-        }
+        //public void UpdateCollection(CollectionRecord collection, string name, 
+        //    string description, int priorityLevel)
+        //{
+        //    var categoriesWithCollection = Categories.Where(c => c.Collections.Contains(collection.Name));
+        //    if (categoriesWithCollection.Any())
+        //    {
+        //        foreach (var category in categoriesWithCollection)
+        //        {
+        //            category.Collections.Remove(collection.Name);
+        //            category.AddCollection(name);
+        //        }
+        //    }
+        //    if (Collections.FirstOrDefault(c => c.Equals(collection)) != null)
+        //    {
+        //        Collections.FirstOrDefault(c => c.Equals(collection))
+        //            .Update(name, description, priorityLevel);
+        //    }
+        //}
 
         /// <summary>
         /// Sorts the items.
@@ -140,31 +139,14 @@ namespace CollectorApp.Models
         /// </summary>
         /// <param name="collection">The collection.</param>
         /// <param name="category">The category.</param>
-        public void AddToCategory(CollectionRecord collection, CategoryRecord category)
-        {
-            var collectionName = collection.Name;
-            if (Categories.FirstOrDefault(c => c.Equals(category)) != null)
-            {
-                Categories.FirstOrDefault(c => c.Equals(category))
-                    .AddCollection(collectionName);
-            }
-        }
-
-        /// <summary>
-        /// Initializes the categories.
-        /// </summary>
-        private void InitializeCategories()
-        {
-            Categories.Add(new CategoryRecord("Music", "Collections related to music"));
-            Categories.Add(new CategoryRecord("Books", "Collections related to books, authors, etc."));
-            Categories.Add(new CategoryRecord("Film", "Collections related to movies, short films, actors, etc."));
-            Categories.Add(new CategoryRecord("Toys", "Collections related to toy sets, dolls, etc."));
-            Categories.Add(new CategoryRecord("Coins", "Collections related to coins"));
-            Categories.Add(new CategoryRecord("Stamps", "Collections related to stamps"));
-            Categories.Add(new CategoryRecord("Games", "Collections related to video games, board games, etc."));
-            Categories.Add(new CategoryRecord("Sports", "Collections related sports artifacts, memorabilia, etc."));
-            Categories.Add(new CategoryRecord("Specific", "Collections that do not fit into the other categories" +
-                " : useful for filtering"));
-        }
+        //public void AddToCategory(CollectionRecord collection, CategoryRecord category)
+        //{
+        //    var collectionName = collection.Name;
+        //    if (Categories.FirstOrDefault(c => c.Equals(category)) != null)
+        //    {
+        //        //Categories.FirstOrDefault(c => c.Equals(category))
+        //        //    .AddCollection(collectionName);
+        //    }
+        //}
     }
 }

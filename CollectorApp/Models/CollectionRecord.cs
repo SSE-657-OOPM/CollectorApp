@@ -27,12 +27,12 @@ namespace CollectorApp.Models
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="priorityLevel">The priority level.</param>
-        public CollectionRecord(string name, int priorityLevel=0)
-        {
-            Name = name;
-            Priority = new Priority(priorityLevel);
-            Items = new ObservableCollection<ItemRecord>();
-        }
+        //public CollectionRecord(string name, int priorityLevel=0)
+        //{
+        //    Name = name;
+        //    Priority = new Priority(priorityLevel);
+        //    Items = new ObservableCollection<ItemRecord>();
+        //}
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CollectionRecord"/> class.
@@ -40,13 +40,13 @@ namespace CollectorApp.Models
         /// <param name="name">The name.</param>
         /// <param name="description">The description.</param>
         /// <param name="priorityLevel">The priority level.</param>
-        public CollectionRecord(string name, string description, int priorityLevel=0)
-        {
-            Name = name;
-            Description = description;
-            Priority = new Priority(priorityLevel);
-            Items = new ObservableCollection<ItemRecord>();
-        }
+        //public CollectionRecord(string name, string description, int priorityLevel=0)
+        //{
+        //    Name = name;
+        //    Description = description;
+        //    Priority = new Priority(priorityLevel);
+        //    Items = new ObservableCollection<ItemRecord>();
+        //}
 
         /// <summary>
         /// Gets or sets the name.
@@ -69,12 +69,12 @@ namespace CollectorApp.Models
         /// <param name="name">The name.</param>
         /// <param name="description">The description.</param>
         /// <param name="priorityLevel">The priority level.</param>
-        public void Update(string name, string description, int priorityLevel)
-        {
-            Name = name;
-            Description = description;
-            Priority = new Priority(priorityLevel);
-        }
+        //public void Update(string name, string description, int priorityLevel)
+        //{
+        //    Name = name;
+        //    Description = description;
+        //    Priority = new Priority(priorityLevel);
+        //}
 
         /// <summary>
         /// Adds the item.
@@ -101,14 +101,14 @@ namespace CollectorApp.Models
         /// <param name="item">The item.</param>
         /// <param name="name">The name.</param>
         /// <param name="priorityLevel">The priority level.</param>
-        public void UpdateItem(ItemRecord item, string name, int priorityLevel)
-        {
-            if (Items.FirstOrDefault(c => c.Equals(item)) != null)
-            {
-                Items.FirstOrDefault(c => c.Equals(item))
-                    .Update(name, priorityLevel);
-            }
-        }
+        //public void UpdateItem(ItemRecord item, string name, int priorityLevel)
+        //{
+        //    if (Items.FirstOrDefault(c => c.Equals(item)) != null)
+        //    {
+        //        Items.FirstOrDefault(c => c.Equals(item))
+        //            .Update(name, priorityLevel);
+        //    }
+        //}
 
         /// <summary>
         /// Sorts the items.
@@ -138,5 +138,10 @@ namespace CollectorApp.Models
                 Items.Where(i => i.Name.Contains(keyword)));
             return matchingItems;
         }
+
+        /// <summary>
+        /// Prevents a default instance of the <see cref="CollectionRecord"/> class from being created.
+        /// </summary>
+        private CollectionRecord() { }
     }
 }

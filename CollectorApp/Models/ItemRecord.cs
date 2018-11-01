@@ -13,7 +13,7 @@
         public ItemRecord(string name, int priorityLevel=0)
         {
             Name = name;
-            Priority = new Priority(priorityLevel);
+            //Priority = new Priority(priorityLevel);
         }
 
         /// <summary>
@@ -37,11 +37,11 @@
         /// <summary>
         /// Updates this instance.
         /// </summary>
-        public void Update(string name, int priorityLevel)
-        {
-            Name = name;
-            Priority = new Priority(priorityLevel);
-        }
+        //public void Update(string name, int priorityLevel)
+        //{
+        //    Name = name;
+        //    Priority = new Priority(priorityLevel);
+        //}
 
         /// <summary>
         /// Returns a <see cref="System.String" /> that represents this instance.
@@ -50,5 +50,10 @@
         /// A <see cref="System.String" /> that represents this instance.
         /// </returns>
         public override string ToString() => Name;
+
+        /// <summary>
+        /// Prevents a default instance of the <see cref="ItemRecord"/> class from being created.
+        /// </summary>
+        private ItemRecord() { }
     }
 }
