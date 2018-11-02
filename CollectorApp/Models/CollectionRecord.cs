@@ -117,13 +117,13 @@ namespace CollectorApp.Models
         /// Sorts the items.
         /// </summary>
         /// <param name="sortParameter">The sort parameter.</param>
-        public void SortItems(Record.SortParameter sortParameter)
+        public void SortItems(SortParameter sortParameter)
         {
-            if (sortParameter == Record.SortParameter.Priority)
+            if (sortParameter == SortParameter.Priority)
             {
                 Items = new ObservableCollection<ItemRecord>(Items.OrderByDescending(i => i.Priority));
             }
-            else if (sortParameter == Record.SortParameter.Name)
+            else if (sortParameter == SortParameter.Name)
             {
                 Items = new ObservableCollection<ItemRecord>(Items.OrderBy(i => i.Name));
             }
