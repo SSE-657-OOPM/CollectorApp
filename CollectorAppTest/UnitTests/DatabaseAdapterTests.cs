@@ -1,7 +1,6 @@
 ﻿using CollectorApp.Adapters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace CollectorAppTest
 {
@@ -28,14 +27,12 @@ namespace CollectorAppTest
             var data = _databaseAdapter.GetData();
             for (int i = 0; i < data.Count; i++)
             {
-                Debug.WriteLine(data[i]);
                 Assert.AreEqual(_possibleData[i], data[i], $"Iteration {i}");
             }
             _databaseAdapter.AddData(SECOND_ADDITION);
             data = _databaseAdapter.GetData();
             for (int i = 0; i < data.Count; i++)
             {
-                Debug.WriteLine(data[i]);
                 Assert.AreEqual(_possibleData[i], data[i], $"Iteration {i}");
             }
         }

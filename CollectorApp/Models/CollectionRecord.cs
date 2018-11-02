@@ -6,7 +6,8 @@ namespace CollectorApp.Models
     /// <summary>
     /// Class representing a collection.
     /// </summary>
-    public class CollectionRecord
+    /// <seealso cref="CollectorApp.Models.Record" />
+    public class CollectionRecord : Record
     {
         private const string DEFAULT_COLLECTION_DESCRIPTION = "No description.";
 
@@ -45,28 +46,12 @@ namespace CollectorApp.Models
         }
 
         /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name of the collection.
-        /// </value>
-        public string Name { get; set; }
-
-        /// <summary>
         /// Gets or sets the description.
         /// </summary>
         /// <value>
         /// The description of the collection.
         /// </value>
         public string Description { get; set; }
-
-        /// <summary>
-        /// Gets or sets the priority.
-        /// </summary>
-        /// <value>
-        /// The priority of the collection.
-        /// </value>
-        public Priority Priority { get; set; }
 
         /// <summary>
         /// Gets or sets the category.
@@ -155,14 +140,6 @@ namespace CollectorApp.Models
                 Items.Where(i => i.Name.ToLower().Contains(keyword.ToLower())));
             return matchingItems;
         }
-
-        /// <summary>
-        /// Returns a <see cref="System.String" /> that represents this instance.
-        /// </summary>
-        /// <returns>
-        /// A <see cref="System.String" /> that represents this instance.
-        /// </returns>
-        public override string ToString() => Name;
 
         /// <summary>
         /// Prevents a default instance of the <see cref="CollectionRecord"/> class from being created.
