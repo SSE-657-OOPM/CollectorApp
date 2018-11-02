@@ -120,9 +120,11 @@ namespace CollectorAppTest
         }
 
         [TestMethod]
-        public void UpdateItemTest()
+        public void UpdateItemCollectionTest()
         {
             var initialItemPriority = Priority.GetPriority(Priority.PriorityLevel.Critical);
+            _testCollection.UpdateItem(_testCollection.Items.FirstOrDefault(), UPDATED_TEST_ITEM_NAME, initialItemPriority);
+            Assert.IsTrue(_testCollection.Items.Count == 0);
             _testCollection.AddItem(TEST_ITEM_NAME, initialItemPriority);
             var newItemPriority = Priority.GetPriority(Priority.PriorityLevel.Low);
             _testCollection.UpdateItem(_testCollection.Items.First(), UPDATED_TEST_ITEM_NAME, newItemPriority);
@@ -133,7 +135,7 @@ namespace CollectorAppTest
         }
 
         [TestMethod]
-        public void SortItemsTest()
+        public void SortItemsCollectionTest()
         {
             var testItemOneName = "Zebra";
             var testItemTwoName = "Ant";
@@ -165,7 +167,7 @@ namespace CollectorAppTest
         }
 
         [TestMethod]
-        public void SearchItemsTest()
+        public void SearchItemsCollectionTest()
         {
             var searchWord = "Tim";
             var testItemOneName = "Sometimes";

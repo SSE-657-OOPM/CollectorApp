@@ -35,15 +35,18 @@ namespace CollectorApp.Models
         /// <param name="name">The name.</param>
         /// <param name="description">The description.</param>
         /// <param name="priorityLevel">The priority level.</param>
-        public void AddCollection(string name, string description, Priority priority, Category category = null)
+        public void AddCollection(string name, string description, Priority priority, Category category)
         {
-            if (!string.IsNullOrWhiteSpace(description))
+            if (!Collections.Any(c => c.Name == name))
             {
-                Collections.Add(new CollectionRecord(name, description, priority, category));
-            }
-            else
-            {
-                Collections.Add(new CollectionRecord(name, priority, category));
+                if (!string.IsNullOrWhiteSpace(description))
+                {
+                    Collections.Add(new CollectionRecord(name, description, priority, category));
+                }
+                else
+                {
+                    Collections.Add(new CollectionRecord(name, priority, category));
+                }
             }
         }
 
@@ -74,18 +77,17 @@ namespace CollectorApp.Models
         }
 
         /// <summary>
-        /// Sorts the items.
+        /// Sorts the collections.
         /// </summary>
         /// <param name="sortParameter">The sort parameter.</param>
-        public void SortItems(int sortParameter)
+        public void SortCollections(Record.SortParameter sortParameter)
         {
-            var sortParam = (Record.SortParameter)sortParameter;
-            if (sortParam == Record.SortParameter.Priority)
+            if (sortParameter == Record.SortParameter.Priority)
             {
                 Collections = new ObservableCollection<CollectionRecord>(
                     Collections.OrderByDescending(c => c.Priority));
             }
-            else if (sortParam == Record.SortParameter.Name)
+            else if (sortParameter == Record.SortParameter.Name)
             {
                 Collections = new ObservableCollection<CollectionRecord>(
                     Collections.OrderBy(c => c.Name));
@@ -93,15 +95,23 @@ namespace CollectorApp.Models
         }
 
         /// <summary>
-        /// Searches the items.
+        /// Searches the collections.
         /// </summary>
         /// <param name="keyword">The keyword.</param>
         /// <returns></returns>
-        public ObservableCollection<CollectionRecord> SearchItems(string keyword)
+        public ObservableCollection<CollectionRecord> SearchCollections(string keyword)
         {
             var matchingItems = new ObservableCollection<CollectionRecord>(
-                Collections.Where(c => c.Name.Contains(keyword)));
+                Collections.Where(c => c.Name.ToLower().Contains(keyword.ToLower())));
             return matchingItems;
         }
+
+        /// <summary>
+        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String" /> that represents this instance.
+        /// </returns>
+        public override string ToString() => Name;
     }
 }
