@@ -47,6 +47,23 @@ namespace DataAccessLibrary
         }
 
         /// <summary>
+        /// Clears the data from the database.
+        /// </summary>
+        public static void ClearData()
+        {
+            using (SqliteConnection db
+                = new SqliteConnection(DATABASE_FILENAME))
+            {
+                db.Open();
+                var insertCommand = new SqliteCommand();
+                insertCommand.Connection = db;
+                insertCommand.CommandText = "DELETE FROM Collections";
+                insertCommand.ExecuteReader();
+                db.Close();
+            }
+        }
+
+        /// <summary>
         /// Gets the data.
         /// </summary>
         /// <returns></returns>

@@ -19,6 +19,11 @@ namespace CollectorApp.Adapters
         void AddData(string input);
 
         /// <summary>
+        /// Clears the data from the database.
+        /// </summary>
+        void ClearData();
+
+        /// <summary>
         /// Gets the data from the database.
         /// </summary>
         /// <returns></returns>

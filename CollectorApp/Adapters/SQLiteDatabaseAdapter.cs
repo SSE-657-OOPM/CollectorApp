@@ -14,6 +14,11 @@ namespace CollectorApp.Adapters
             SQLiteDataAccess.AddData(input);
         }
 
+        public void ClearData()
+        {
+            SQLiteDataAccess.ClearData();
+        }
+
         public List<string> GetData()
         {
             return SQLiteDataAccess.GetData();
