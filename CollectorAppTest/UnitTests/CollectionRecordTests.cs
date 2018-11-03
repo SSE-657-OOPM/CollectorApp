@@ -34,6 +34,13 @@ namespace CollectorAppTest
         }
 
         [TestMethod]
+        public void TestNullCollectionPriority()
+        {
+            var testCollection = new CollectionRecord(TEST_ITEM_NAME, null);
+            Assert.AreEqual(testCollection.Priority, Priority.GetPriority(Priority.PriorityLevel.Normal));
+        }
+
+        [TestMethod]
         public void CollectionPropertiesTest()
         {
             Assert.AreEqual(_testCollection.Name, TEST_COLLECTION_NAME);

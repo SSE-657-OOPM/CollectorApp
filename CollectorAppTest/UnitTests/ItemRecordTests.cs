@@ -15,8 +15,15 @@ namespace CollectorAppTest
         public void Initialize()
         {
             Priority.LoadPriorityLevels();
-            _testItemPriority = Priority.GetPriority(Priority.PriorityLevel.Normal);
+            _testItemPriority = Priority.GetPriority(Priority.PriorityLevel.Low);
             _testItem = new ItemRecord(TEST_ITEM_NAME, _testItemPriority);
+        }
+
+        [TestMethod]
+        public void TestNullItemPriority()
+        {
+            var testItem = new ItemRecord(TEST_ITEM_NAME, null);
+            Assert.AreEqual(testItem.Priority, Priority.GetPriority(Priority.PriorityLevel.Normal));
         }
 
         [TestMethod]

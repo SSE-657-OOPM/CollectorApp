@@ -14,7 +14,7 @@
         public ItemRecord(string name, Priority priority)
         {
             Name = name;
-            Priority = priority;
+            Priority = priority ?? Priority.GetPriority(Priority.PriorityLevel.Normal);
         }
 
         /// <summary>

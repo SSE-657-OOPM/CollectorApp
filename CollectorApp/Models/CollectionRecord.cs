@@ -25,7 +25,7 @@ namespace CollectorApp.Models
         {
             Name = name;
             Description = DEFAULT_COLLECTION_DESCRIPTION;
-            Priority = priority;
+            Priority = priority ?? Priority.GetPriority(Priority.PriorityLevel.Normal);
             Category = category;
             Items = new ObservableCollection<ItemRecord>();
         }
@@ -40,7 +40,7 @@ namespace CollectorApp.Models
         {
             Name = name;
             Description = description;
-            Priority = priority;
+            Priority = priority ?? Priority.GetPriority(Priority.PriorityLevel.Normal);
             Category = category;
             Items = new ObservableCollection<ItemRecord>();
         }
