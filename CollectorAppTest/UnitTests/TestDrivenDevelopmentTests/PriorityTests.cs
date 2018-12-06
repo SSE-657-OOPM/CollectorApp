@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace CollectorAppTest
+namespace CollectorAppTest.UnitTests.TestDrivenDevelopmentTests
 {
     [TestClass]
     public class PriorityTests

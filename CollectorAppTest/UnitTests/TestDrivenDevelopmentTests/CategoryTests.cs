@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Xml.Linq;
 
-namespace CollectorAppTest
+namespace CollectorAppTest.UnitTests.TestDrivenDevelopmentTests
 {
     [TestClass]
     public class CategoryTests

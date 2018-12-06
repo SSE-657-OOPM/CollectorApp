@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace CollectorAppTest
+namespace CollectorAppTest.UnitTests.TestDrivenDevelopmentTests
 {
     [TestClass]
     public class CollectionRecordTests

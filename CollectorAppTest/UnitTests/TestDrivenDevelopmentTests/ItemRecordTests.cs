@@ -1,7 +1,7 @@
 ﻿using CollectorApp.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CollectorAppTest
+namespace CollectorAppTest.UnitTests.TestDrivenDevelopmentTests
 {
     [TestClass]
     public class ItemRecordTests
