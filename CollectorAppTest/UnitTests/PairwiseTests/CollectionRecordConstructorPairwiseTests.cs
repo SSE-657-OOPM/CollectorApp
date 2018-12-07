@@ -2,7 +2,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 
 namespace CollectorAppTest.UnitTests.PairwiseTests
@@ -89,16 +88,11 @@ namespace CollectorAppTest.UnitTests.PairwiseTests
                 var stream = assembly.GetManifestResourceStream(testFile);
                 using (var reader = new StreamReader(stream))
                 {
-                    var parameterNames = reader.ReadLine().Split(',').ToList();
-                    if (parameterNames.Count != 4) throw new FileLoadException();
-                    IEnumerable<object[]> inputs = new List<object[]>();
+                    var parameterNames = reader.ReadLine().Split(',');
+                    if (parameterNames.Length != 4) throw new FileLoadException();
                     while (!reader.EndOfStream)
                     {
-                        var values = reader.ReadLine().Split(',');
-                        var iters = parameterNames.Count == values.Length
-                            ? values.Length : 0;
-
-                        yield return values;
+                        yield return reader.ReadLine().Split(',');
                     }
                 }
             }
