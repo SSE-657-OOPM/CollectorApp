@@ -120,6 +120,7 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="CollectorAppTest_TemporaryKey.pfx" />
+    <EmbeddedResource Include="Resources\PairwiseTestSets\collection_tests.csv" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\UnitTestApp.rd.xml" />

@@ -3,7 +3,7 @@
 namespace CollectorAppTest.UnitTests.PairwiseTests
 {
     [TestClass]
-    class ItemRecordConstructorPairwiseTests
+    public class ItemRecordConstructorPairwiseTests
     {
         [TestInitialize]
         public void Initialize()
