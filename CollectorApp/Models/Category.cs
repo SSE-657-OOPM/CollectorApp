@@ -129,7 +129,8 @@ namespace CollectorApp.Models
             var xml = XDocument.Load(DEFAULT_CATEGORY_RECORD_FILE);
             foreach (var category in xml.Descendants(CATEGORY_RECORD_XML_CATEGORY_ELEMENT_NAME))
             {
-                nameList.Add(category.Attribute(CATEGORY_RECORD_XML_CATEGORY_NAME_ATTRIBUTE_NAME).Value.Trim());
+                nameList.Add(category.Attribute(CATEGORY_RECORD_XML_CATEGORY_NAME_ATTRIBUTE_NAME)
+                    .Value.Trim());
             }
 
             return nameList.Contains(name);

@@ -108,6 +108,7 @@
       <DependentUpon>UnitTestApp.xaml</DependentUpon>
     </Compile>
     <Compile Include="UnitTests\TestDrivenDevelopmentTests\PriorityTests.cs" />
+    <Compile Include="UnitTests\WhiteBoxTests\ControlFlow\AddCollectionControlFlowTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="UnitTestApp.xaml">
@@ -154,6 +155,9 @@
       <Project>{5AD18223-6664-49C7-8006-5500B6CBB17C}</Project>
       <Name>CollectorApp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UnitTests\WhiteBoxTests\DataFlow\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
